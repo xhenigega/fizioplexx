@@ -191,7 +191,7 @@ const Contact = () => {
                         </a>
                         <a
                           href="tel:+355692031024"
-                          className="text-ml font-semibold mb-4 text-neutral-700"
+                          className="text-ml font-semibold  text-neutral-700"
                         >
                           +355 692031024
                         </a>
@@ -282,7 +282,7 @@ const Contact = () => {
                       </div>
                       <div className="ml-6">
                         <p className="mb-2 font-bold text-xl">Oraret</p>
-                        <p className="text-ml font-semibold text-neutral-700 whitespace-nowrap">
+                        <p className="text-sm lg:text-ml font-semibold text-neutral-700 whitespace-nowrap">
                           E hënë - E shtunë: 9:00 - 21:00
                         </p>
 

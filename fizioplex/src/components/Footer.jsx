@@ -4,7 +4,7 @@ import { logo } from "../constants/images";
 const Footer = () => {
   return (
     <footer className="bg-white border-y-2 border-primary">
-      <div className="mx-auto max-w-5xl px-4 pt-36 pb-4 sm:px-6 lg:px-8 lg:pt-8">
+      <div className="mx-auto max-w-5xl px-4 pt-96 pb-1 sm:px-6 lg:px-8 lg:pt-8">
         <div className="flex justify-center ">
           <img
             src={logo}
