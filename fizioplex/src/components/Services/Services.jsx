@@ -32,7 +32,7 @@ const services = [
     image: image18,
     title: "Riedukim Postural",
     description:
-      "Ky proces rehabimotion.litues përdor një kombinim të qëndrimeve të kontrolluara, të cilat ndihmojnë në rregulmotion.limin e disbalancave të trupit. Përmes aktiviteteve të udhëzuara, që përfshijnë ushtrime aktive dhe teknika relaksuese pasive, pacientët marrin ndihmën e nevojshme për të luftuar dhimbjet muskulare, reduktuar spazmat dhe kontraktimet, si dhe për të përmirësuar funksionimin e artikulacioneve dhe lëvizshmërinë e shtyllës kurrizore.",
+      "Ky proces rehabilitues përdor një kombinim të qëndrimeve të kontrolluara, të cilat ndihmojnë në rregulmotion.limin e disbalancave të trupit. Përmes aktiviteteve të udhëzuara, që përfshijnë ushtrime aktive dhe teknika relaksuese pasive, pacientët marrin ndihmën e nevojshme për të luftuar dhimbjet muskulare, reduktuar spazmat dhe kontraktimet, si dhe për të përmirësuar funksionimin e artikulacioneve dhe lëvizshmërinë e shtyllës kurrizore.",
   },
   {
     id: 4,
