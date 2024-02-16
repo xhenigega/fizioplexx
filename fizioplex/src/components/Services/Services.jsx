@@ -25,21 +25,21 @@ const services = [
     image: image25,
     title: "Kinesiotaping",
     description:
-      "Synon në mënyrë efektive dhimbjen e shpinës dhe shpatullave. Duke apmotion.likuar pajisjeve përkatëse në zona të veçanta, nxitet rritja e presionit të gjakut, relaksimi i muskujve dhe lehtësimi i dhimbjes.",
+      "Synon në mënyrë efektive dhimbjen e shpinës dhe shpatullave. Duke aplikuar pajisjeve përkatëse në zona të veçanta, nxitet rritja e presionit të gjakut, relaksimi i muskujve dhe lehtësimi i dhimbjes.",
   },
   {
     id: 3,
     image: image18,
     title: "Riedukim Postural",
     description:
-      "Ky proces rehabilitues përdor një kombinim të qëndrimeve të kontrolluara, të cilat ndihmojnë në rregulmotion.limin e disbalancave të trupit. Përmes aktiviteteve të udhëzuara, që përfshijnë ushtrime aktive dhe teknika relaksuese pasive, pacientët marrin ndihmën e nevojshme për të luftuar dhimbjet muskulare, reduktuar spazmat dhe kontraktimet, si dhe për të përmirësuar funksionimin e artikulacioneve dhe lëvizshmërinë e shtyllës kurrizore.",
+      "Ky proces rehabilitues përdor një kombinim të qëndrimeve të kontrolluara, të cilat ndihmojnë në rregullimin e disbalancave të trupit. Përmes aktiviteteve të udhëzuara, që përfshijnë ushtrime aktive dhe teknika relaksuese pasive, pacientët marrin ndihmën e nevojshme për të luftuar dhimbjet muskulare, reduktuar spazmat dhe kontraktimet, si dhe për të përmirësuar funksionimin e artikulacioneve dhe lëvizshmërinë e shtyllës kurrizore.",
   },
   {
     id: 4,
     image: image13,
     title: "Terapia stretching",
     description:
-      "Përmirësim të lëvizshmërisë dhe fleksibimotion.litetit.Reduktim të dëmtimeve të tendinave, ose siç njihen ndryshe “ngërçet”. Ndihmojnë në performancën e përgjithshme të trupit në përditshmëri.",
+      "Përmirësim të lëvizshmërisë dhe fleksibilitetit.Reduktim të dëmtimeve të tendinave, ose siç njihen ndryshe “ngërçet”. Ndihmojnë në performancën e përgjithshme të trupit në përditshmëri.",
   },
   {
     id: 5,
