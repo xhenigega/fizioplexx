@@ -26,7 +26,7 @@ import icon2 from "../assets/images/profesional.svg";
 import icon3 from "../assets/images/flex.svg";
 import icon4 from "../assets/images/motivation.svg";
 import logo from "../assets/images/logo.png";
-
+import pin from "../assets/images/pin.svg";
 
 
 export {
@@ -57,5 +57,6 @@ export {
   icon2,
   icon3,
   icon4,
+  pin,
   logo,
 };

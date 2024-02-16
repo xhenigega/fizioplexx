@@ -31,8 +31,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="order-2 md:order-3">
-          <button className="px-4 py-2 bg-primary hover:bg-teal-700 text-gray-50 rounded-xl flex items-center gap-2">
-            <a href="#contact">Na kontaktoni</a >
+          <button className="px-4 py-2 bg-primary animate-pulse hover:bg-teal-700 text-gray-50 rounded-xl flex items-center gap-2">
+            <a href="tel:+355684669042">Na kontaktoni</a >
           </button>
         </div>
       </div>

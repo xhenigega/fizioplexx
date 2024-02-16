@@ -4,21 +4,21 @@ import { image20 } from "../../constants/images";
 const Features = () => {
   return (
     <section className="bg-secondary border-t-2 border-primary">
-       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 font-roboto min-h-screen">
-    <div className="grid grid-cols-1 lg:grid-cols-2">
+      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 font-roboto min-h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="relative z-10 lg:py-16">
             <div className="relative h-[500px] sm:h-80 lg:h-[720px]">
               <img
                 alt=""
                 src={image20}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover animate-pulse"
               />
             </div>
           </div>
 
           <div className="relative flex items-center bg-primary/30">
-        <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-primary/30"></span>
-        <div className="p-8 sm:p-16 lg:p-24">
+            <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-primary/30"></span>
+            <div className="p-8 sm:p-16 lg:p-24">
               <h2 className="text-2xl font-bold text-white sm:text-3xl">
                 Paketa të Personalizuara Fitnessi për Çdo Nevojë
               </h2>
@@ -38,7 +38,7 @@ const Features = () => {
 
               <a
                 href="#"
-                className="mt-8 inline-block rounded border border-primary bg-primary px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-primary focus:outline-none focus:ring active:text-indigo-500"
+                className="mt-8 inline-block rounded border animate-bounce border-primary bg-primary px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-primary focus:outline-none focus:ring active:text-indigo-500"
               >
                 KONSULTOHU ME NE
               </a>
