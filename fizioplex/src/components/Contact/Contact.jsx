@@ -1,14 +1,70 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { pin } from "../../constants/images";
 
+import useAlert from "../../hooks/useAlert";
+import Alert from "../Alert";
+import emailjs from "@emailjs/browser";
 const Contact = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const formRef = useRef();
+  const [form, setForm] = useState({ name: "",  phoneNumber: "", message: "" });
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
+  const [loading, setLoading] = useState(false);
+  const { alert, showAlert, hideAlert } = useAlert();
+  const handleChange = ({ target: { name, value } }) => {
+    setForm({ ...form, [name]: value });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Jon Xhani",
+          from_email: form.phoneNumber,
+          to_email: "jonxhani@gmail.com",
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          showAlert({
+            show: true,
+            text: "FALEMDINDERIT PER MESAZHIN 😃",
+            type: "success",
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+
+            setForm({
+              name: "",
+              phoneNumber: "",
+              message: "",
+            });
+          }, [3000]);
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+
+          showAlert({
+            show: true,
+            text: "NUK E MOREM MESAZHIN TEND,NA TELEFONO😢",
+            type: "danger",
+          });
+        }
+      );
+  };
+
   useEffect(() => {
     const map = L.map("map", {
       center: [41.31639379620295, 19.812753942327955],
@@ -45,54 +101,50 @@ const Contact = () => {
           <div className="block rounded-lg bg-slate-200 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-16 md:px-12 backdrop-blur-[30px] border border-primary">
             <div className="flex flex-wrap">
               <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
-                <form>
+                {alert.show && <Alert {...alert} />}
+
+                <form ref={formRef} onSubmit={handleSubmit}>
                   <h4 className="text-xl font-bold">NA KONTAKTONI</h4>
                   <div className="relative my-6 " data-te-input-wrapper-init>
                     <input
+                      name="name"
                       type="text"
-                      checked={isChecked}
-                      onChange={handleCheckboxChange}
+                      placeholder="Emri "
+                      value={form.name}
+                      onChange={handleChange}
                       className="peer block min-h-[auto] w-full rounded border-2 border-primary bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                       id="exampleInput90"
                     />
-                    <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-700 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
-                      htmlFor="exampleInput90"
-                    >
-                      Emri
-                    </label>
+                    
                   </div>
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <input
+                      name="phoneNumber"
                       type="phoneNumber"
-                      checked={isChecked}
-                      onChange={handleCheckboxChange}
+                      placeholder="Numri juaj i kontaktit"
+                      value={form.phoneNumber}
+                      onChange={handleChange}
                       className="peer block min-h-[auto] w-full rounded border-2 border-primary  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                       id="exampleInput91"
                     />
-                    <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-700 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
-                      htmlFor="exampleInput91"
-                    >
-                      Numri telefonit
-                    </label>
+                   
                   </div>
                   <div className="relative mb-6" data-te-input-wrapper-init>
                     <textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
                       className="peer block min-h-[auto] w-full rounded border-2  border-primary  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                       id="exampleFormControlTextarea1"
                       rows="3"
+                      placeholder="Përshkruani shqetësimin tuaj"
                     ></textarea>
-                    <label
-                      htmlFor="exampleFormControlTextarea1"
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-700 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none "
-                    >
-                      Përshkruani shqetësimin tuaj
-                    </label>
+                   
                   </div>
 
                   <button
                     type="button"
+                    onClick={handleSubmit}
                     className="mb-6 w-full rounded bg-primary text-white tracking-widest px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal   lg:mb-0"
                   >
                     Dërgo
@@ -135,7 +187,7 @@ const Contact = () => {
                           href="tel:+355684669042"
                           className="text-ml font-semibold mb-4 text-neutral-700"
                         >
-                         +355 684669042 
+                          +355 684669042
                         </a>
                         <a
                           href="tel:+355692031024"
@@ -198,7 +250,6 @@ const Contact = () => {
                             stroke="currentColor"
                             className="w-7 h-7"
                           >
-                            
                             <circle
                               cx="12"
                               cy="12"
@@ -207,7 +258,7 @@ const Contact = () => {
                               strokeWidth="2"
                               strokeLinecap="round"
                             />
-                           
+
                             <line
                               x1="12"
                               y1="12"
@@ -234,7 +285,7 @@ const Contact = () => {
                         <p className="text-ml font-semibold text-neutral-700 whitespace-nowrap">
                           E hënë - E shtunë: 9:00 - 21:00
                         </p>
-                        
+
                         <p className="text-ml font-semibold text-neutral-700">
                           E diel: Mbyllur
                         </p>
